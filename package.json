@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "engines": {
-    "node":"18.x"
+    "node": "18.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "pm2 start server.js && pm2 start seedcities.js && pm2 start seedturf.js",
     "seed:cities": "node seedcities.js",
     "seed:turf": "node seedturf.js",
     "dev": "concurrently \"node seedcities.js\" \"node seedturf.js\" \"node server.js\""
@@ -28,6 +28,7 @@
     "mongoose": "^8.8.0",
     "nodemailer": "^6.9.16",
     "otp-generator": "^4.0.1",
+    "pm2": "^5.4.3",
     "vercel": "^37.14.0"
   },
   "devDependencies": {
